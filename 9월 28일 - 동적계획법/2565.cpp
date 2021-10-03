@@ -8,7 +8,7 @@ int main() {
 	vector<int> dp(101);
 	int n;
 	cin >> n;
-	
+
 	vector<pair<int, int>> v;
 	v.push_back(make_pair(0, 0));
 
@@ -23,9 +23,9 @@ int main() {
 	sort(v.begin(), v.end());
 
 	//bottom up 방식
-	int total; //연결 가능한 전깃줄의 최댓값
+	int total=0; //연결 가능한 전깃줄의 최댓값
 	for (int i = 1; i <= n; i++) {
-		for (int j = 0; j <= n; j++) {
+		for (int j = 0; j < i; j++) {
 			if (v[i].second > v[j].second) {
 				if (dp[i] <= dp[j])
 					dp[i] = dp[j] + 1;
